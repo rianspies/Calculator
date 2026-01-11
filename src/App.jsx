@@ -4,22 +4,35 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-
- const [fnum, setfnum] = useState();
+ const [a, setA] = useState('');
+ const [b, setB] = useState('');
+ const [c, setC] = useState(false);
  const [result, setResult] = useState();
 
  const handeClick = (e) =>{
-  const b = e.target.value;
-  setfnum(b);
-  console.log(fnum)
+  if (c == false){
+    setA(a + e.target.value)
+  } else {
+    setB(b + e.target.value)
+  }
  };
+
+ 
+
+ const operations = (e, a, b) =>{
+  setC(true);
+  if (e.target.value == 'plus'){
+    setResult(a + b)
+    console.log(a)
+  }
+ }
 
  
 
   return ( 
     <>
     <div id='mainC'>
-      <input type="text" id='result' value={result} onChange={handeClick}/>
+      <input type="text" id='result' value={a} onChange={handeClick}/>
       <button id='one' value={1} onClick={handeClick}>1</button>
       <button id='two' value={2} onClick={handeClick}>2</button>
       <button id='three' value={3} onClick={handeClick}>3</button>
@@ -30,7 +43,7 @@ function App() {
       <button id='eight' value={8} onClick={handeClick}>8</button>
       <button id='nine' value={9} onClick={handeClick}>9</button>
       <button id='zero' value={0} onClick={handeClick}>0</button>
-      <button id='plus'>+</button>
+      <button id='plus' value={'plus'} onClick={operations}>+</button>
       <button id='minus'>-</button>
       <button id='multiply'>x</button>
       <button id='devide'>/</button>
