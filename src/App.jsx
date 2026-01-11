@@ -7,8 +7,10 @@ function App() {
  const [a, setA] = useState('');
  const [b, setB] = useState('');
  const [c, setC] = useState(false);
- const [result, setResult] = useState();
+ const [d, setD] = useState('')
+ const [result, setResult] = useState('');
 
+//sets first and second value
  const handeClick = (e) =>{
   if (c == false){
     setA(a + e.target.value)
@@ -18,21 +20,39 @@ function App() {
  };
 
  
-
- const operations = (e, a, b) =>{
+//handles +-*/ operations
+ const operations = (e) =>{
   setC(true);
+  const first = Number(a);
+  const second = Number(b);
   if (e.target.value == 'plus'){
-    setResult(a + b)
-    console.log(a)
+    setResult(first + second)
+  } else if(e.target.value == 'minus'){
+    setResult(first - second)
+  } else if(e.target.value == 'multiply'){
+    setResult(first*second)
+  } else if(e.target.value == 'devide'){
+    setResult(first/second)
+  } else {
+    console.log('not working')
   }
  }
+
+ //changes value of input dynamically
+ /*const handleResult = (e) =>{
+  if (c == false){
+    setD()
+  } else {
+    console.log('not working')
+  }
+ }*/
 
  
 
   return ( 
     <>
     <div id='mainC'>
-      <input type="text" id='result' value={a} onChange={handeClick}/>
+      <input type="text" id='result' value={a}/>
       <button id='one' value={1} onClick={handeClick}>1</button>
       <button id='two' value={2} onClick={handeClick}>2</button>
       <button id='three' value={3} onClick={handeClick}>3</button>
@@ -44,9 +64,9 @@ function App() {
       <button id='nine' value={9} onClick={handeClick}>9</button>
       <button id='zero' value={0} onClick={handeClick}>0</button>
       <button id='plus' value={'plus'} onClick={operations}>+</button>
-      <button id='minus'>-</button>
-      <button id='multiply'>x</button>
-      <button id='devide'>/</button>
+      <button id='minus' value={'minus'} onClick={operations}>-</button>
+      <button id='multiply' value={'multiply'} onClick={operations}>x</button>
+      <button id='devide' value={'devide'} onClick={operations}>/</button>
       <button id='equals'>=</button>
       <button id='clear'>C</button>
     </div>
