@@ -1,5 +1,21 @@
-#mainC {
-    border: red solid 2px;
-    display: flex;
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    border: solid red 2px;
 }
 
+button{
+    width: 5%;
+    height: 2rem;
+}
+
+#equation{
+    border: solid red 2px;
+    height: 1rem;
+    width: 15%;
+    justify-self: center;
+}
+
+#result{
+    width: 14.5%;
+}
