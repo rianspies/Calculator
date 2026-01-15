@@ -4,70 +4,90 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
+  //a=first #, b=second #, c=count, d=operator, f=result, g=input box
  const [a, setA] = useState('');
  const [b, setB] = useState('');
- const [c, setC] = useState(false);
- const [d, setD] = useState('')
- const [result, setResult] = useState('');
+ const [c, setC] = useState(0);
+ const [d, setD] = useState('');
+ const [f, setF] = useState('');
+ const [g, setG] = useState();
 
-//sets first and second value
- const handeClick = (e) =>{
-  if (c == false){
-    setA(a + e.target.value)
+ //changes input box to correct numbers
+ /*const input = () =>{
+  if(c == 0){
+    setG(a)
+    console.log(g)
+  } else if(c == 1){
+    setG(b)
   } else {
-    setB(b + e.target.value)
+    setG(f)
+  }
+ };*/
+
+ 
+ const handleClick = (e) =>{
+  let input = e.target.value;
+  if(c == 0){
+    setA(a+=input);
+    console.log(a)
+    setG(input)
+  } else if(c == 1){
+    setB(input+=b);
+    setG(input)
   }
  };
 
- 
-//handles +-*/ operations
- const operations = (e) =>{
-  setC(true);
+ const handleOperator = (e) =>{
+  setD(e.target.value);
+  setC(1)
+ };
+
+ const handleEquation = () =>{
   const first = Number(a);
   const second = Number(b);
-  if (e.target.value == 'plus'){
-    setResult(first + second)
-  } else if(e.target.value == 'minus'){
-    setResult(first - second)
-  } else if(e.target.value == 'multiply'){
-    setResult(first*second)
-  } else if(e.target.value == 'devide'){
-    setResult(first/second)
-  } else {
-    console.log('not working')
+  let r=0
+  if(d == 'plus'){
+    r=first + second;
+    setF(r);
+    setG(r)
+  } else if(d == 'minus'){
+    r=first - second;
+    setF(r);
+    setG(r)
+  } else if(d == 'devide'){
+    r=first/second;
+    setF(r);
+    setG(r)
+  } else if(d == 'multiply'){
+    r=first*second;
+    setF(r);
+    setG(r)
   }
  }
 
- //changes value of input dynamically
- /*const handleResult = (e) =>{
-  if (c == false){
-    setD()
-  } else {
-    console.log('not working')
-  }
- }*/
+
 
  
 
   return ( 
     <>
     <div id='mainC'>
-      <input type="text" id='result' value={a}/>
-      <button id='one' value={1} onClick={handeClick}>1</button>
-      <button id='two' value={2} onClick={handeClick}>2</button>
-      <button id='three' value={3} onClick={handeClick}>3</button>
-      <button id='four' value={4} onClick={handeClick}>4</button>
-      <button id='five' value={5} onClick={handeClick}>5</button>
-      <button id='six' value={6} onClick={handeClick}>6</button>
-      <button id='seven' value={7} onClick={handeClick}>7</button>
-      <button id='eight' value={8} onClick={handeClick}>8</button>
-      <button id='nine' value={9} onClick={handeClick}>9</button>
-      <button id='zero' value={0} onClick={handeClick}>0</button>
-      <button id='plus' value={'plus'} onClick={operations}>+</button>
-      <button id='minus' value={'minus'} onClick={operations}>-</button>
-      <button id='multiply' value={'multiply'} onClick={operations}>x</button>
-      <button id='devide' value={'devide'} onClick={operations}>/</button>
-      <button id='equals'>=</button>
+      <input type="text" id='result' value={g}/>
+      <button id='one' value={1} onClick={handleClick}>1</button>
+      <button id='two' value={2} onClick={handleClick}>2</button>
+      <button id='three' value={3} onClick={handleClick}>3</button>
+      <button id='four' value={4} onClick={handleClick}>4</button>
+      <button id='five' value={5} onClick={handleClick}>5</button>
+      <button id='six' value={6} onClick={handleClick}>6</button>
+      <button id='seven' value={7} onClick={handleClick}>7</button>
+      <button id='eight' value={8} onClick={handleClick}>8</button>
+      <button id='nine' value={9} onClick={handleClick}>9</button>
+      <button id='zero' value={0} onClick={handleClick}>0</button>
+      <button id='plus' value={'plus'} onClick={handleOperator}>+</button>
+      <button id='minus' value={'minus'} onClick={handleOperator}>-</button>
+      <button id='multiply' value={'multiply'} onClick={handleOperator}>x</button>
+      <button id='devide' value={'devide'} onClick={handleOperator}>/</button>
+      <button id='equals' onClick={handleEquation}>=</button>
       <button id='clear'>C</button>
     </div>
     </>
