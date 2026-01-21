@@ -67,31 +67,33 @@ function App() {
 
   return ( 
     <>
-    <p id='equation'>{h}</p>
-    <input type="text" id='result' value={g} readOnly/>
+    
     <div id='mainC'>
+      <p id='equation'>{h}</p>
+      <input type="text" id='result' value={g} readOnly/>
       <div>
-        <button id='one' value={1} onClick={handleClick}>1</button>
-        <button id='two' value={2} onClick={handleClick}>2</button>
-        <button id='three' value={3} onClick={handleClick}>3</button>
+        <button id='seven' value={7} onClick={handleClick}>7</button>
+        <button id='eight' value={8} onClick={handleClick}>8</button>
+        <button id='nine' value={9} onClick={handleClick}>9</button>
+        <button id='plus' value={'+'} onClick={handleOperator}>+</button>
       </div>
       <div>
         <button id='four' value={4} onClick={handleClick}>4</button>
         <button id='five' value={5} onClick={handleClick}>5</button>
         <button id='six' value={6} onClick={handleClick}>6</button>
+        <button id='minus' value={'-'} onClick={handleOperator}>-</button>
       </div>
       <div>
-        <button id='seven' value={7} onClick={handleClick}>7</button>
-        <button id='eight' value={8} onClick={handleClick}>8</button>
-        <button id='nine' value={9} onClick={handleClick}>9</button>
-      </div>
-        <button id='zero' value={0} onClick={handleClick}>0</button>
-        <button id='plus' value={'+'} onClick={handleOperator}>+</button>
-        <button id='minus' value={'-'} onClick={handleOperator}>-</button>
+        <button id='one' value={1} onClick={handleClick}>1</button>
+        <button id='two' value={2} onClick={handleClick}>2</button>
+        <button id='three' value={3} onClick={handleClick}>3</button>
         <button id='multiply' value={'x'} onClick={handleOperator}>x</button>
-        <button id='devide' value={'/'} onClick={handleOperator}>/</button>
-        <button id='equals' onClick={handleEquation}>=</button>
+        
+      </div>
         <button id='clear' onClick={clear}>C</button>
+        <button id='zero' value={0} onClick={handleClick}>0</button>
+        <button id='equals' onClick={handleEquation}>=</button>
+        <button id='devide' value={'/'} onClick={handleOperator}>÷</button>
     </div>
     </>
   )
