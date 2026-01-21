@@ -25,7 +25,7 @@ function App() {
     let result = b + input;
     setB(result);
     setG(result);
-    setH(prev=> prev + result)
+    setH(prev=> prev + input)
   }
  };
 
