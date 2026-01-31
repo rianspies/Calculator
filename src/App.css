@@ -29,6 +29,16 @@ button{
     font-size: 1.5rem;
 }
 
+button:disabled{
+    width: 25%;
+    height: 3rem;
+    border: white solid 2px;
+    border-radius: 5px;
+    background-color: rgb(83, 154, 104);
+    color:white;
+    font-size: 1.5rem;
+}
+
 #equation{
     border-radius: 5px;
     height: 1rem;
